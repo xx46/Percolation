@@ -32,23 +32,23 @@ public class PercolationDFS implements IPercolate {
 			Arrays.fill(row, BLOCKED);
 	}
 
-	public void open(int i, int j) {
-		if (myGrid[i][j] != BLOCKED)
+	public void open(int row, int col) {
+		if (myGrid[row][col] != BLOCKED)
 			return;
 		myOpenCount += 1;
-		myGrid[i][j] = OPEN;
-		if (i == 0) {
-			myGrid[i][j]	 = FULL;
+		myGrid[row][col] = OPEN;
+		if (row == 0) {
+			myGrid[row][col]	 = FULL;
 		}
-		updateOnOpen(i,j);
+		updateOnOpen(row,col);
 	}
 
-	public boolean isOpen(int i, int j) {
-		return myGrid[i][j] != BLOCKED;
+	public boolean isOpen(int row, int col) {
+		return myGrid[row][col] != BLOCKED;
 	}
 
-	public boolean isFull(int i, int j) {
-		return myGrid[i][j] == FULL;
+	public boolean isFull(int row, int col) {
+		return myGrid[row][col] == FULL;
 	}
 
 	private void clearFull() {
